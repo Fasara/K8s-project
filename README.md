@@ -1,6 +1,6 @@
 # K8s-project
 
-## Learning notes
+## Learning notes 🤓
 
 Kubernetes is a container orchestration platform that coordinates the collaboration of **Master Nodes** and **Worker Nodes**.
 
