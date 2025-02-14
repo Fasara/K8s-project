@@ -13,6 +13,9 @@ ______
 ### Pods
 
 In K8s, pods are the smallest deployable units and encapsulate application containers.
+Every pod is given a virtual IP address, and as they are ephemeral their IP address changes whenever they are created and destroyed they are given new IP addresses. So IP addresses are not a very reliable way to access the application 
+
+![](/diagrams/pod.svg)
 
 #### Pod Configuration
 
