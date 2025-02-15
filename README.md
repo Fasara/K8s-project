@@ -48,3 +48,54 @@ The command structure is: `kubectl port-forward <pod-name> <local-port>:<pod-por
 For example, `kubectl port-forward mypod 8080:80` forwards local port 8080 to port 80 of the pod.
 
 _____
+
+## Service
+
+The Service in K8s abstracts away the network complexity and provides a durable endpoint for accessing pods.
+
+#### NodePort Service
+Allows external access to the K8s network by exposing a static port on the node (range: `3000-32767`).
+
+```
+apiVersion: v1
+kind: Service
+metadata: 
+  name: grade-submission-portal
+spec:
+  type: NodePort
+  selector:
+    app: grade-submission-portal
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
+```
+
+- The external request is initiated on the node's static port (**nodePort: 30080**).
+
+- The request enters the cluster through the Service's internal port (**port: 8080**). With NodePort services, this internal port can be any valid port number, as the external nodePort(30080) will be mapped to whatever internal port is specified.
+
+- The service acts as a proxy directing request to a matching pod using a label selector.
+
+- The service specifies a target port (**targetPort: 8080**) that ensures the request reaches the container port on the pod.
+
+The NodePort service is often used for prototyping, rarely in practice.
+
+#### ClusterIP Service
+Used for internal pod-to-pod communication within the cluster.
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - port: 8080
+      targetPort: 8080
+```
+
+- Pods within the cluster can access the service using the service name (`backend-service`) and service's interna; port (`port: 8080`).
