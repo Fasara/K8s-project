@@ -10,10 +10,11 @@ Worker Nodes provide the infrastructure to run the applications.
 
 ______
 
-### Pods
+## Pods
 
 In K8s, pods are the smallest deployable units and encapsulate application containers.
-Every pod is given a virtual IP address, and as they are ephemeral their IP address changes whenever they are created and destroyed they are given new IP addresses. So IP addresses are not a very reliable way to access the application 
+Every pod is given a virtual IP address, and as they are ephemeral their IP address changes whenever they are created and destroyed.
+So IP addresses are not a very reliable way to access the application.
 
 ![](/diagrams/pod.drawio.svg)
 
@@ -98,4 +99,9 @@ spec:
       targetPort: 8080
 ```
 
-- Pods within the cluster can access the service using the service name (`backend-service`) and service's interna; port (`port: 8080`).
+- Pods within the cluster can access the service using the service name (`backend-service`) and service's internal port (`port: 8080`).
+
+## Namespace
+A logical concept to group resources that are closely related, invisible boundaries created by the ETCD database to make easy for developers to manage close resources.
+
+You can't access the cluster directly, you are given access to certain namespaces based on your role.
