@@ -101,6 +101,10 @@ spec:
 
 - Pods within the cluster can access the service using the service name (`backend-service`) and service's internal port (`port: 8080`).
 
+- The service acts as a proxy by directing the traffic to the matching pods using label selectors.
+
+- The service specifies a a target port `(targetPort: 8080)` that ensures the request reaches the container port on the pod.
+
 ## Namespace
 A logical concept to group resources that are closely related, invisible boundaries created by the ETCD database to make easy for developers to manage close resources.
 

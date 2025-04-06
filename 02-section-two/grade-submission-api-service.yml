@@ -7,4 +7,4 @@ spec:
     app.kubernetes.io/instance: grade-submission-api
   ports:
   - port: 3000
-    targetPort: 3000
+    targetPort: 3000 # This is the port on the container
