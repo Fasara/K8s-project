@@ -108,4 +108,10 @@ spec:
 ## Namespace
 A logical concept to group resources that are closely related, invisible boundaries created by the ETCD database to make easy for developers to manage close resources.
 
-You can't access the cluster directly, you are given access to certain namespaces based on your role.
+You can't access the cluster directly, you are given access to certain namespaces based on your role. 
+
+Namespaces allow us to implement role based access control. 
+
+Namespaces can be given resource quotas.
+
+- `spec` always defines the behavior of a K8s object, and the `metadata` things like `name` and `namespace` 
