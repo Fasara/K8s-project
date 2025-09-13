@@ -115,3 +115,5 @@ Namespaces allow us to implement role based access control.
 Namespaces can be given resource quotas.
 
 - `spec` always defines the behavior of a K8s object, and the `metadata` things like `name` and `namespace` 
+
+
